@@ -1,0 +1,312 @@
+/* ==========================================================================
+   EquiGQNet project page styles
+   Layered on top of bulma.min.css + index.css (the template stylesheet).
+   Kept in a separate file so the template CSS stays untouched.
+   ========================================================================== */
+
+/* One step down from the template's 16px base. Bulma and this stylesheet size
+   almost everything in rem, so moving the root size scales the whole page at once. */
+html {
+  font-size: 15px;
+}
+
+body {
+  font-size: 15px;
+}
+
+:root {
+  --eq-accent: #0f766e;
+  --eq-accent-soft: #ccfbf1;
+  --eq-accent-dark: #115e59;
+  --eq-ours-bg: #f0fdfa;
+  --eq-early: #b45309;
+  --eq-early-bg: #fef3c7;
+  --eq-late: #6d28d9;
+  --eq-late-bg: #ede9fe;
+  --eq-rule: #d8dee6;
+}
+
+
+/* ---------------------------------------------------------------- Hero ---- */
+
+.eq-name {
+  color: var(--eq-accent);
+  letter-spacing: -0.02em;
+}
+
+.publication-title {
+  font-size: clamp(1.7rem, 4.1vw, 2.9rem) !important;
+  margin-bottom: 1.5rem !important;
+}
+
+.publication-authors {
+  line-height: 1.9;
+  margin-bottom: 1rem !important;
+}
+
+/* Four names per line, with a hard break between the two lines. */
+.author-line {
+  display: block;
+}
+
+.publication-affiliations {
+  color: var(--text-secondary);
+  line-height: 1.7;
+  margin-bottom: 1.75rem;
+}
+
+/* "Coming soon" buttons: look like real buttons but read as unavailable. */
+.button.is-soon {
+  background: #e9edf2 !important;
+  color: var(--text-secondary) !important;
+  cursor: not-allowed;
+  box-shadow: none !important;
+  pointer-events: none;
+}
+
+.button.is-soon .soon-tag {
+  margin-left: 0.5rem;
+  font-size: 0.68rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  background: var(--text-light);
+  color: #fff;
+  padding: 0.1rem 0.42rem;
+  border-radius: 4px;
+}
+
+
+/* ------------------------------------------------------------- Teaser ---- */
+
+/* Two clips share the container width, so each renders at about half the size the
+   single full-width teaser had. */
+.teaser-pair {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1.25rem;
+}
+
+.teaser-item {
+  min-width: 0;
+}
+
+.teaser video {
+  width: 100%;
+  display: block;
+  border-radius: var(--border-radius);
+  box-shadow: var(--shadow-lg);
+  background: #0b1220;
+}
+
+.teaser-label {
+  margin-top: 0.6rem;
+  text-align: center;
+  font-size: 0.9rem;
+  font-weight: 650;
+  color: var(--text-primary);
+}
+
+.teaser-speed {
+  display: inline-block;
+  margin-left: 0.35rem;
+  background: var(--eq-accent-soft);
+  color: var(--eq-accent-dark);
+  font-size: 0.76rem;
+  font-weight: 700;
+  padding: 0.1rem 0.45rem;
+  border-radius: 5px;
+  white-space: nowrap;
+  vertical-align: 1px;
+}
+
+
+/* ------------------------------------------------------------ Figures ---- */
+
+.project-figure {
+  margin: 0 auto 2.75rem;
+}
+
+/* The anchor must be a block for a percentage max-width on the image to resolve
+   against the container rather than the image's own intrinsic width. */
+.project-figure > a {
+  display: block;
+  line-height: 0;
+}
+
+.project-figure img {
+  max-width: 100%;
+  height: auto;
+  border-radius: var(--border-radius);
+  border: 1px solid var(--border-color);
+  background: #fff;
+  box-shadow: var(--shadow-sm);
+}
+
+/* Half the column width, for figures that are legible small. */
+.project-figure img.fig-half {
+  max-width: 50%;
+}
+
+/* Every figure sits inside the text column, so nothing is wider than the prose. */
+
+
+/* -------------------------------------------------- Decluttering runs ---- */
+
+/* Three runs per row: household on the first row, Dex-Net adversarial on the
+   second. preload="metadata" plus a #t=0.1 fragment on each source gives a real
+   first-frame thumbnail without fetching the whole clip. */
+.run-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1rem;
+  margin-bottom: 1rem;
+}
+
+.run-grid video {
+  width: 100%;
+  display: block;
+  /* Reserve the box before metadata arrives so the grid does not reflow, but
+     letterbox rather than crop if a clip is not exactly 16:9. */
+  aspect-ratio: 16 / 9;
+  object-fit: contain;
+  border-radius: var(--border-radius);
+  box-shadow: var(--shadow-md);
+  background: #0b1220;
+  min-width: 0;
+}
+
+
+/* ------------------------------------------------------------- Tables ---- */
+
+/* Bulma's .hero is a column flexbox, so a .container inside it is a content-sized
+   flex item. A scroll container still reports its content's max-content width, so
+   a wide nowrap table stretched the container past the viewport -- and because
+   Bulma sets html { overflow-x: hidden }, the excess was silently clipped instead
+   of scrollable. Resolving the container's width against its parent instead of its
+   contents pins it to the viewport and hands the scrolling back to .tbl-wrap.
+   The max-width from .is-max-desktop still applies above 1024px, so desktop
+   centring is unchanged. */
+.hero > .container,
+.hero > .hero-body > .container,
+.section > .container {
+  width: 100%;
+  min-width: 0;
+}
+
+.tbl-wrap {
+  overflow-x: auto;
+  -webkit-overflow-scrolling: touch;
+  border: 1px solid var(--border-color);
+  border-radius: var(--border-radius);
+  background: #fff;
+  max-width: 100%;
+  margin-bottom: 2.75rem;
+}
+
+.eq-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 0.86rem;
+  font-variant-numeric: tabular-nums;
+  white-space: nowrap;
+}
+
+.eq-table th,
+.eq-table td {
+  padding: 0.5rem 0.65rem;
+  border-bottom: 1px solid #eef1f5;
+}
+
+/* Centre every cell. Bulma ships
+     table td:not([align]), table th:not([align]) { text-align: inherit }
+   whose specificity (0,1,2) beats a plain `.eq-table td` (0,1,1), so the obvious
+   rule loses the cascade and cells fall back to inherited left alignment. Matching
+   Bulma's selector shape and adding the class puts this at (0,2,2) so it wins. */
+table.eq-table th:not([align]),
+table.eq-table td:not([align]) {
+  text-align: center;
+}
+
+.eq-table thead th {
+  background: var(--background-accent);
+  font-weight: 700;
+  font-size: 0.76rem;
+  color: var(--text-primary);
+  line-height: 1.35;
+  border-bottom: 1px solid var(--eq-rule);
+  vertical-align: middle;
+}
+
+.eq-table thead tr:last-child th {
+  border-bottom: 2px solid var(--eq-rule);
+}
+
+.eq-table th.grp + th,
+.eq-table .grp {
+  border-left: 1px solid var(--eq-rule);
+}
+
+.eq-table tbody tr:hover { background: #f7fafc; }
+
+.eq-table tbody tr.row-ours { background: var(--eq-ours-bg); }
+.eq-table tbody tr.row-ours:hover { background: #e0f7f3; }
+
+.eq-table .frac {
+  display: block;
+  font-size: 0.72rem;
+  color: var(--text-light);
+  font-weight: 400;
+  margin-top: 0.1rem;
+}
+
+.tag-fusion {
+  display: inline-block;
+  font-size: 0.64rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  padding: 0.08rem 0.35rem;
+  border-radius: 4px;
+  margin-left: 0.35rem;
+  vertical-align: 1px;
+}
+
+.tag-early { background: var(--eq-early-bg); color: var(--eq-early); }
+.tag-late  { background: var(--eq-late-bg);  color: var(--eq-late); }
+
+
+/* ------------------------------------------------------------- Footer ---- */
+
+.footer .ack {
+  font-size: 0.82rem !important;
+  line-height: 1.7;
+  color: var(--text-light);
+  padding-bottom: 1rem;
+  border-bottom: 1px solid var(--border-color);
+  margin-bottom: 1rem;
+  text-align: left;
+}
+
+
+/* --------------------------------------------------------- Responsive ---- */
+
+@media screen and (max-width: 900px) {
+  .run-grid { grid-template-columns: 1fr 1fr; }
+}
+
+@media screen and (max-width: 700px) {
+  /* Not enough room for two columns of 16:9 video; stack them instead. */
+  .teaser-pair { grid-template-columns: 1fr; }
+  .run-grid    { grid-template-columns: 1fr; }
+
+  /* A half-width figure is unreadable on a phone. */
+  .project-figure img.fig-half { max-width: 85%; }
+}
+
+@media screen and (max-width: 640px) {
+  .publication-authors { line-height: 2.1; font-size: 1rem !important; }
+  .author-block { margin-right: 0.35rem; }
+
+  .eq-table { font-size: 0.8rem; }
+}

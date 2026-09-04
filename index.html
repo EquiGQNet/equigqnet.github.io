@@ -3,474 +3,487 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  
+
   <!-- Primary Meta Tags -->
-  <!-- TODO: Replace with your paper title and author names -->
-  <meta name="title" content="PAPER_TITLE - AUTHOR_NAMES">
-  <!-- TODO: Write a compelling 150-160 character description of your research -->
-  <meta name="description" content="BRIEF_DESCRIPTION_OF_YOUR_RESEARCH_CONTRIBUTION_AND_FINDINGS">
-  <!-- TODO: Add 5-10 relevant keywords for your research area -->
-  <meta name="keywords" content="KEYWORD1, KEYWORD2, KEYWORD3, machine learning, computer vision, AI">
-  <!-- TODO: List all authors -->
-  <meta name="author" content="FIRST_AUTHOR_NAME, SECOND_AUTHOR_NAME">
+  <meta name="title" content="EquiGQNet: Fast Grasp Quality Evaluation via Shared Equivariant Point Cloud Encoding">
+  <meta name="description" content="EquiGQNet evaluates arbitrary 6-DoF grasps from a single shared SO(3)-equivariant scene encoding: a 6.9x faster CEM planner with 95.2% real-world grasp success and 230 picks per hour.">
+  <meta name="keywords" content="6-DoF grasping, grasp quality evaluation, SO(3) equivariance, vector neurons, point cloud, robotic manipulation, cross-entropy method, cluttered grasping, decluttering, deep learning in grasping and manipulation">
+  <meta name="author" content="Sungwon Seo, Jaeseog Won, Jiyou Shin, Youngjin Seo, Hyunjun Kim, Seokmin Yoon, Tuan Luong, Hyungpil Moon">
   <meta name="robots" content="index, follow">
   <meta name="language" content="English">
-  
+
   <!-- Open Graph / Facebook -->
   <meta property="og:type" content="article">
-  <!-- TODO: Replace with your institution or lab name -->
-  <meta property="og:site_name" content="INSTITUTION_OR_LAB_NAME">
-  <!-- TODO: Same as paper title above -->
-  <meta property="og:title" content="PAPER_TITLE">
-  <!-- TODO: Same as description above -->
-  <meta property="og:description" content="BRIEF_DESCRIPTION_OF_YOUR_RESEARCH_CONTRIBUTION_AND_FINDINGS">
-  <!-- TODO: Replace with your actual website URL -->
-  <meta property="og:url" content="https://YOUR_DOMAIN.com/YOUR_PROJECT_PAGE">
-  <!-- TODO: Create a 1200x630px preview image and update path -->
-  <meta property="og:image" content="https://YOUR_DOMAIN.com/static/images/social_preview.png">
-  <meta property="og:image:width" content="1200">
-  <meta property="og:image:height" content="630">
-  <meta property="og:image:alt" content="PAPER_TITLE - Research Preview">
-  <meta property="article:published_time" content="2024-01-01T00:00:00.000Z">
-  <meta property="article:author" content="FIRST_AUTHOR_NAME">
-  <meta property="article:section" content="Research">
-  <meta property="article:tag" content="KEYWORD1">
-  <meta property="article:tag" content="KEYWORD2">
+  <meta property="og:site_name" content="Sungkyunkwan University">
+  <meta property="og:title" content="EquiGQNet: Fast Grasp Quality Evaluation via Shared Equivariant Point Cloud Encoding">
+  <meta property="og:description" content="EquiGQNet evaluates arbitrary 6-DoF grasps from a single shared SO(3)-equivariant scene encoding: a 6.9x faster CEM planner with 95.2% real-world grasp success and 230 picks per hour.">
+  <meta property="og:url" content="https://equigqnet.github.io/">
+  <!-- TODO (optional): create a 1200x630 preview image at static/images/social_preview.png and point these at it -->
+  <meta property="og:image" content="https://equigqnet.github.io/static/images/fig1_overview.png">
+  <meta property="og:image:alt" content="EquiGQNet overview: encode the scene once, then rotate the equivariant features for each grasp candidate">
+  <meta property="article:author" content="Sungwon Seo">
+  <meta property="article:section" content="Robotics">
+  <meta property="article:tag" content="6-DoF grasping">
+  <meta property="article:tag" content="SO(3) equivariance">
 
   <!-- Twitter -->
   <meta name="twitter:card" content="summary_large_image">
-  <!-- TODO: Replace with your lab/institution Twitter handle -->
-  <meta name="twitter:site" content="@YOUR_TWITTER_HANDLE">
-  <!-- TODO: Replace with first author's Twitter handle -->
-  <meta name="twitter:creator" content="@AUTHOR_TWITTER_HANDLE">
-  <!-- TODO: Same as paper title above -->
-  <meta name="twitter:title" content="PAPER_TITLE">
-  <!-- TODO: Same as description above -->
-  <meta name="twitter:description" content="BRIEF_DESCRIPTION_OF_YOUR_RESEARCH_CONTRIBUTION_AND_FINDINGS">
-  <!-- TODO: Same as social preview image above -->
-  <meta name="twitter:image" content="https://YOUR_DOMAIN.com/static/images/social_preview.png">
-  <meta name="twitter:image:alt" content="PAPER_TITLE - Research Preview">
+  <meta name="twitter:title" content="EquiGQNet: Fast Grasp Quality Evaluation via Shared Equivariant Point Cloud Encoding">
+  <meta name="twitter:description" content="Encode the scene once, then rotate the features per grasp: a 6.9x faster 6-DoF grasp evaluator with 95.2% real-world success and 230 picks per hour.">
+  <meta name="twitter:image" content="https://equigqnet.github.io/static/images/fig1_overview.png">
+  <meta name="twitter:image:alt" content="EquiGQNet overview figure">
 
-  <!-- Academic/Research Specific -->
-  <meta name="citation_title" content="PAPER_TITLE">
-  <meta name="citation_author" content="FIRST_AUTHOR_LAST, FIRST_AUTHOR_FIRST">
-  <meta name="citation_author" content="SECOND_AUTHOR_LAST, SECOND_AUTHOR_FIRST">
-  <meta name="citation_publication_date" content="2024">
-  <meta name="citation_conference_title" content="CONFERENCE_NAME">
-  <meta name="citation_pdf_url" content="https://YOUR_DOMAIN.com/static/pdfs/paper.pdf">
-  
+  <!-- Academic / Google Scholar -->
+  <meta name="citation_title" content="EquiGQNet: Fast Grasp Quality Evaluation via Shared Equivariant Point Cloud Encoding">
+  <meta name="citation_author" content="Seo, Sungwon">
+  <meta name="citation_author" content="Won, Jaeseog">
+  <meta name="citation_author" content="Shin, Jiyou">
+  <meta name="citation_author" content="Seo, Youngjin">
+  <meta name="citation_author" content="Kim, Hyunjun">
+  <meta name="citation_author" content="Yoon, Seokmin">
+  <meta name="citation_author" content="Luong, Tuan">
+  <meta name="citation_author" content="Moon, Hyungpil">
+  <meta name="citation_publication_date" content="2026">
+  <!-- TODO (after arXiv submission): uncomment and fill in the arXiv id
+  <meta name="citation_arxiv_id" content="ARXIV_ID">
+  <meta name="citation_pdf_url" content="https://arxiv.org/pdf/ARXIV_ID.pdf">
+  -->
+
   <!-- Additional SEO -->
-  <meta name="theme-color" content="#2563eb">
-  <meta name="msapplication-TileColor" content="#2563eb">
+  <meta name="theme-color" content="#0f766e">
+  <meta name="msapplication-TileColor" content="#0f766e">
   <meta name="apple-mobile-web-app-capable" content="yes">
   <meta name="apple-mobile-web-app-status-bar-style" content="default">
-  
+
   <!-- Preconnect for performance -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link rel="preconnect" href="https://ajax.googleapis.com">
-  <link rel="preconnect" href="https://documentcloud.adobe.com">
   <link rel="preconnect" href="https://cdn.jsdelivr.net">
 
+  <title>EquiGQNet: Fast Grasp Quality Evaluation via Shared Equivariant Point Cloud Encoding</title>
 
-  <!-- TODO: Replace with your paper title and authors -->
-  <title>PAPER_TITLE - AUTHOR_NAMES | Academic Research</title>
-  
-  <!-- Favicon and App Icons -->
-  <link rel="icon" type="image/x-icon" href="static/images/favicon.ico">
-  <link rel="apple-touch-icon" href="static/images/favicon.ico">
-  
-  <!-- Critical CSS - Load synchronously -->
+  <!-- No favicon is declared, so browsers show their own default page icon. -->
+
+  <!-- Critical CSS -->
   <link rel="stylesheet" href="static/css/bulma.min.css">
   <link rel="stylesheet" href="static/css/index.css">
-  
-  <!-- Non-critical CSS - Load asynchronously -->
-  <link rel="preload" href="static/css/bulma-carousel.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
-  <link rel="preload" href="static/css/bulma-slider.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
-  <link rel="preload" href="static/css/fontawesome.all.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+  <!-- Project-specific styles (loaded last so it can override the template) -->
+  <link rel="stylesheet" href="static/css/equigqnet.css">
+
+  <!-- Non-critical CSS: academicons supplies the arXiv glyph. Font Awesome is not
+       loaded as CSS -- fontawesome.all.min.js below renders those icons as inline SVG. -->
   <link rel="preload" href="https://cdn.jsdelivr.net/gh/jpswalsh/academicons@1/css/academicons.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
-  
-  <!-- Fallback for browsers that don't support preload -->
+
   <noscript>
-    <link rel="stylesheet" href="static/css/bulma-carousel.min.css">
-    <link rel="stylesheet" href="static/css/bulma-slider.min.css">
-    <link rel="stylesheet" href="static/css/fontawesome.all.min.css">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/jpswalsh/academicons@1/css/academicons.min.css">
   </noscript>
-  
-  <!-- Fonts - Optimized loading -->
+
+  <!-- Fonts -->
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
-  
-  <!-- Defer non-critical JavaScript -->
-  <script defer src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-  <script defer src="https://documentcloud.adobe.com/view-sdk/main.js"></script>
+
+  <!-- Deferred JavaScript -->
   <script defer src="static/js/fontawesome.all.min.js"></script>
-  <script defer src="static/js/bulma-carousel.min.js"></script>
-  <script defer src="static/js/bulma-slider.min.js"></script>
   <script defer src="static/js/index.js"></script>
-  
-  <!-- Structured Data for Academic Papers -->
+
+  <!-- Structured Data -->
   <script type="application/ld+json">
   {
     "@context": "https://schema.org",
     "@type": "ScholarlyArticle",
-    "headline": "PAPER_TITLE",
-    "description": "BRIEF_DESCRIPTION_OF_YOUR_RESEARCH_CONTRIBUTION_AND_FINDINGS",
+    "headline": "EquiGQNet: Fast Grasp Quality Evaluation via Shared Equivariant Point Cloud Encoding",
+    "description": "An efficient 6-DoF grasp quality evaluator that reuses a single SO(3)-equivariant scene encoding across grasp candidates through encode-once-then-rotate feature alignment and Mid-level Action Fusion.",
     "author": [
-      {
-        "@type": "Person",
-        "name": "FIRST_AUTHOR_NAME",
-        "affiliation": {
-          "@type": "Organization",
-          "name": "INSTITUTION_NAME"
-        }
-      },
-      {
-        "@type": "Person",
-        "name": "SECOND_AUTHOR_NAME",
-        "affiliation": {
-          "@type": "Organization",
-          "name": "INSTITUTION_NAME"
-        }
-      }
+      { "@type": "Person", "name": "Sungwon Seo", "identifier": "https://orcid.org/0000-0001-7862-7936", "affiliation": { "@type": "Organization", "name": "Sungkyunkwan University" } },
+      { "@type": "Person", "name": "Jaeseog Won", "identifier": "https://orcid.org/0009-0003-9504-5059", "affiliation": { "@type": "Organization", "name": "Sungkyunkwan University" } },
+      { "@type": "Person", "name": "Jiyou Shin", "identifier": "https://orcid.org/0009-0007-8952-1644", "affiliation": { "@type": "Organization", "name": "Sungkyunkwan University" } },
+      { "@type": "Person", "name": "Youngjin Seo", "identifier": "https://orcid.org/0009-0004-8247-6340", "affiliation": { "@type": "Organization", "name": "Sungkyunkwan University" } },
+      { "@type": "Person", "name": "Hyunjun Kim", "identifier": "https://orcid.org/0009-0005-6260-8059", "affiliation": { "@type": "Organization", "name": "Sungkyunkwan University" } },
+      { "@type": "Person", "name": "Seokmin Yoon", "identifier": "https://orcid.org/0009-0006-4744-8656", "affiliation": { "@type": "Organization", "name": "Sungkyunkwan University" } },
+      { "@type": "Person", "name": "Tuan Luong", "identifier": "https://orcid.org/0000-0001-5490-4337", "affiliation": { "@type": "Organization", "name": "Sungkyunkwan University" } },
+      { "@type": "Person", "name": "Hyungpil Moon", "identifier": "https://orcid.org/0000-0002-1091-0716", "affiliation": { "@type": "Organization", "name": "Sungkyunkwan University" } }
     ],
-    "datePublished": "2024-01-01",
-    "publisher": {
-      "@type": "Organization",
-      "name": "CONFERENCE_OR_JOURNAL_NAME"
-    },
-    "url": "https://YOUR_DOMAIN.com/YOUR_PROJECT_PAGE",
-    "image": "https://YOUR_DOMAIN.com/static/images/social_preview.png",
-    "keywords": ["KEYWORD1", "KEYWORD2", "KEYWORD3", "machine learning", "computer vision"],
-    "abstract": "FULL_ABSTRACT_TEXT_HERE",
-    "citation": "BIBTEX_CITATION_HERE",
+    "datePublished": "2026",
+    "url": "https://equigqnet.github.io/",
+    "image": "https://equigqnet.github.io/static/images/fig1_overview.png",
+    "keywords": ["6-DoF grasping", "grasp quality evaluation", "SO(3) equivariance", "point cloud", "robotic manipulation", "deep learning in grasping and manipulation"],
+    "abstract": "Planning six-degree-of-freedom (6-DoF) grasps for unseen objects in cluttered tabletop scenes from a single-view depth image requires accurate and efficient evaluation of diverse grasp candidates. Existing early-fusion methods capture local object geometry relative to each grasp candidate but repeatedly encode the scene, whereas late-fusion methods reuse a shared scene representation but may lose this grasp-relative local geometry. We propose EquiGQNet, an efficient 6-DoF grasp quality evaluator that combines the strengths of both approaches.",
     "isAccessibleForFree": true,
-    "license": "https://creativecommons.org/licenses/by/4.0/",
-    "mainEntity": {
-      "@type": "WebPage",
-      "@id": "https://YOUR_DOMAIN.com/YOUR_PROJECT_PAGE"
-    },
     "about": [
-      {
-        "@type": "Thing",
-        "name": "RESEARCH_AREA_1"
-      },
-      {
-        "@type": "Thing", 
-        "name": "RESEARCH_AREA_2"
-      }
-    ]
-  }
-  </script>
-  
-  <!-- Website/Organization Structured Data -->
-  <script type="application/ld+json">
-  {
-    "@context": "https://schema.org",
-    "@type": "Organization",
-    "name": "INSTITUTION_OR_LAB_NAME",
-    "url": "https://YOUR_INSTITUTION_WEBSITE.com",
-    "logo": "https://YOUR_DOMAIN.com/static/images/favicon.ico",
-    "sameAs": [
-      "https://twitter.com/YOUR_TWITTER_HANDLE",
-      "https://github.com/YOUR_GITHUB_USERNAME"
+      { "@type": "Thing", "name": "Robotic Grasping" },
+      { "@type": "Thing", "name": "Equivariant Deep Learning" }
     ]
   }
   </script>
 </head>
 <body>
 
-
   <!-- Scroll to Top Button -->
   <button class="scroll-to-top" onclick="scrollToTop()" title="Scroll to top" aria-label="Scroll to top">
     <i class="fas fa-chevron-up"></i>
   </button>
 
-  <!-- More Works Dropdown -->
-  <div class="more-works-container">
-    <button class="more-works-btn" onclick="toggleMoreWorks()" title="View More Works from Our Lab">
-      <i class="fas fa-flask"></i>
-      More Works
-      <i class="fas fa-chevron-down dropdown-arrow"></i>
-    </button>
-    <div class="more-works-dropdown" id="moreWorksDropdown">
-      <div class="dropdown-header">
-        <h4>More Works from Our Lab</h4>
-        <button class="close-btn" onclick="toggleMoreWorks()">
-          <i class="fas fa-times"></i>
-        </button>
-      </div>
-      <div class="works-list">
-        <!-- TODO: Replace with your lab's related works -->
-        <a href="https://arxiv.org/abs/PAPER_ID_1" class="work-item" target="_blank">
-          <div class="work-info">
-            <!-- TODO: Replace with actual paper title -->
-            <h5>Paper Title 1</h5>
-            <!-- TODO: Replace with brief description -->
-            <p>Brief description of the work and its main contribution.</p>
-            <!-- TODO: Replace with venue and year -->
-            <span class="work-venue">Conference/Journal 2024</span>
-          </div>
-          <i class="fas fa-external-link-alt"></i>
-        </a>
-        <!-- TODO: Add more related works or remove extra items -->
-        <a href="https://arxiv.org/abs/PAPER_ID_2" class="work-item" target="_blank">
-          <div class="work-info">
-            <h5>Paper Title 2</h5>
-            <p>Brief description of the work and its main contribution.</p>
-            <span class="work-venue">Conference/Journal 2023</span>
-          </div>
-          <i class="fas fa-external-link-alt"></i>
-        </a>
-        <a href="https://arxiv.org/abs/PAPER_ID_3" class="work-item" target="_blank">
-          <div class="work-info">
-            <h5>Paper Title 3</h5>
-            <p>Brief description of the work and its main contribution.</p>
-            <span class="work-venue">Conference/Journal 2023</span>
-          </div>
-          <i class="fas fa-external-link-alt"></i>
-        </a>
-      </div>
-    </div>
-  </div>
-
   <main id="main-content">
+
+  <!-- ============================== HERO ============================== -->
   <section class="hero">
     <div class="hero-body">
       <div class="container is-max-desktop">
         <div class="columns is-centered">
           <div class="column has-text-centered">
-            <!-- TODO: Replace with your paper title -->
-            <h1 class="title is-1 publication-title">Academic Project Page</h1>
+
+            <h1 class="title is-1 publication-title">
+              <span class="eq-name">EquiGQNet</span>: Fast Grasp Quality Evaluation<br>
+              via Shared Equivariant Point Cloud Encoding
+            </h1>
+
             <div class="is-size-5 publication-authors">
-              <!-- TODO: Replace with your paper authors and their personal links -->
-              <span class="author-block">
-                <a href="FIRST AUTHOR PERSONAL LINK" target="_blank">First Author</a><sup>*</sup>,</span>
-                <span class="author-block">
-                  <a href="SECOND AUTHOR PERSONAL LINK" target="_blank">Second Author</a><sup>*</sup>,</span>
-                  <span class="author-block">
-                    <a href="THIRD AUTHOR PERSONAL LINK" target="_blank">Third Author</a>
-                  </span>
-                  </div>
+              <span class="author-line">
+                <span class="author-block"><a href="https://scholar.google.com/citations?user=W-J4c-gAAAAJ&amp;hl=en" target="_blank" rel="noopener">Sungwon Seo</a>,</span>
+                <!-- TODO (optional): no personal page provided for Jaeseog Won; wrap the name in
+                     an <a href="..."> like the others once one is available. -->
+                <span class="author-block">Jaeseog Won,</span>
+                <span class="author-block"><a href="https://jiyou384.github.io/jiyou/" target="_blank" rel="noopener">Jiyou Shin</a>,</span>
+                <span class="author-block"><a href="https://gomtaeng2.github.io/" target="_blank" rel="noopener">Youngjin Seo</a>,</span>
+              </span>
+              <span class="author-line">
+                <span class="author-block"><a href="https://rla-guswns.github.io/" target="_blank" rel="noopener">Hyunjun Kim</a>,</span>
+                <span class="author-block"><a href="https://yos-mon.github.io/" target="_blank" rel="noopener">Seokmin Yoon</a>,</span>
+                <span class="author-block"><a href="https://sites.google.com/view/tuan-luong/home" target="_blank" rel="noopener">Tuan Luong</a>,</span>
+                <span class="author-block"><a href="https://rise.skku.edu/" target="_blank" rel="noopener">Hyungpil Moon</a></span>
+              </span>
+            </div>
 
-                  <div class="is-size-5 publication-authors">
-                    <!-- TODO: Replace with your institution and conference/journal info -->
-                    <span class="author-block">Institution Name<br>Conference name and year</span>
-                    <!-- TODO: Remove this line if no equal contribution -->
-                    <span class="eql-cntrb"><small><br><sup>*</sup>Indicates Equal Contribution</small></span>
-                  </div>
+            <div class="is-size-6 publication-affiliations">
+              <span>Sungkyunkwan University</span>
+            </div>
 
-                  <div class="column has-text-centered">
-                    <div class="publication-links">
-                         <!-- TODO: Update with your arXiv paper ID -->
-                      <span class="link-block">
-                        <a href="https://arxiv.org/pdf/<ARXIV PAPER ID>.pdf" target="_blank"
-                        class="external-link button is-normal is-rounded is-dark">
-                        <span class="icon">
-                          <i class="fas fa-file-pdf"></i>
-                        </span>
-                        <span>Paper</span>
-                      </a>
-                    </span>
+            <div class="publication-links">
 
-                    <!-- TODO: Add your supplementary material PDF or remove this section -->
-                    <span class="link-block">
-                      <a href="static/pdfs/supplementary_material.pdf" target="_blank"
-                      class="external-link button is-normal is-rounded is-dark">
-                      <span class="icon">
-                        <i class="fas fa-file-pdf"></i>
-                      </span>
-                      <span>Supplementary</span>
-                    </a>
-                  </span>
-
-                  <!-- TODO: Replace with your GitHub repository URL -->
-                  <span class="link-block">
-                    <a href="https://github.com/YOUR REPO HERE" target="_blank"
-                    class="external-link button is-normal is-rounded is-dark">
-                    <span class="icon">
-                      <i class="fab fa-github"></i>
-                    </span>
-                    <span>Code</span>
-                  </a>
-                </span>
-
-                <!-- TODO: Update with your arXiv paper ID -->
-                <span class="link-block">
-                  <a href="https://arxiv.org/abs/<ARXIV PAPER ID>" target="_blank"
-                  class="external-link button is-normal is-rounded is-dark">
-                  <span class="icon">
-                    <i class="ai ai-arxiv"></i>
-                  </span>
-                  <span>arXiv</span>
+              <!-- TODO (after arXiv submission): add href="https://arxiv.org/pdf/ARXIV_ID",
+                   then delete the is-soon class, the aria-disabled attribute and the Soon tag -->
+              <span class="link-block">
+                <a class="external-link button is-normal is-rounded is-dark is-soon" aria-disabled="true" title="Available after arXiv submission">
+                  <span class="icon"><i class="fas fa-file-pdf"></i></span>
+                  <span>Paper</span>
+                  <span class="soon-tag">Soon</span>
                 </a>
               </span>
+
+              <!-- TODO (after arXiv submission): add href="https://arxiv.org/abs/ARXIV_ID",
+                   then delete the is-soon class, the aria-disabled attribute and the Soon tag -->
+              <span class="link-block">
+                <a class="external-link button is-normal is-rounded is-dark is-soon" aria-disabled="true" title="Available after arXiv submission">
+                  <span class="icon"><i class="ai ai-arxiv"></i></span>
+                  <span>arXiv</span>
+                  <span class="soon-tag">Soon</span>
+                </a>
+              </span>
+
+              <!-- TODO (on code release): add href="https://github.com/USER/REPO",
+                   then delete the is-soon class, the aria-disabled attribute and the Soon tag -->
+              <span class="link-block">
+                <a class="external-link button is-normal is-rounded is-dark is-soon" aria-disabled="true" title="Code will be released">
+                  <span class="icon"><i class="fab fa-github"></i></span>
+                  <span>Code</span>
+                  <span class="soon-tag">Soon</span>
+                </a>
+              </span>
+
+            </div>
+
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+  <!-- ============================ END HERO ============================ -->
+
+
+  <!-- ============================ TEASER ============================== -->
+  <section class="hero teaser">
+    <div class="container is-max-desktop">
+      <div class="hero-body">
+        <!-- Household and Dex-Net adversarial picking, side by side. -->
+        <div class="teaser-pair">
+          <div class="teaser-item">
+            <video autoplay muted loop playsinline preload="metadata" controls
+                   aria-label="Household object picking, 6x speed">
+              <source src="static/videos/house_hold1.mp4" type="video/mp4">
+              Your browser does not support the video tag.
+            </video>
+            <div class="teaser-label">
+              Household Objects <span class="teaser-speed">6&times; speed</span>
+            </div>
+          </div>
+          <div class="teaser-item">
+            <video autoplay muted loop playsinline preload="metadata" controls
+                   aria-label="Dex-Net adversarial object picking, 6x speed">
+              <source src="static/videos/dexnet_adv1.mp4" type="video/mp4">
+              Your browser does not support the video tag.
+            </video>
+            <div class="teaser-label">
+              Dex-Net Adversarial <span class="teaser-speed">6&times; speed</span>
             </div>
           </div>
         </div>
       </div>
     </div>
-  </div>
-</section>
+  </section>
+  <!-- ========================== END TEASER ============================ -->
 
 
-<!-- Teaser video-->
-<section class="hero teaser">
-  <div class="container is-max-desktop">
-    <div class="hero-body">
-      <!-- TODO: Replace with your teaser video -->
-      <video poster="" id="tree" autoplay controls muted loop height="100%" preload="metadata">
-        <!-- TODO: Add your video file path here -->
-        <source src="static/videos/banner_video.mp4" type="video/mp4">
-      </video>
-      <!-- TODO: Replace with your video description -->
-      <h2 class="subtitle has-text-centered">
-        Aliquam vitae elit ullamcorper tellus egestas pellentesque. Ut lacus tellus, maximus vel lectus at, placerat pretium mi. Maecenas dignissim tincidunt vestibulum. Sed consequat hendrerit nisl ut maximus. 
-      </h2>
-    </div>
-  </div>
-</section>
-<!-- End teaser video -->
-
-<!-- Paper abstract -->
-<section class="section hero is-light">
-  <div class="container is-max-desktop">
-    <div class="columns is-centered has-text-centered">
-      <div class="column is-four-fifths">
-        <h2 class="title is-3">Abstract</h2>
-        <div class="content has-text-justified">
-          <!-- TODO: Replace with your paper abstract -->
-          <p>
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin ullamcorper tellus sed ante aliquam tempus. Etiam porttitor urna feugiat nibh elementum, et tempor dolor mattis. Donec accumsan enim augue, a vulputate nisi sodales sit amet. Proin bibendum ex eget mauris cursus euismod nec et nibh. Maecenas ac gravida ante, nec cursus dui. Vivamus purus nibh, placerat ac purus eget, sagittis vestibulum metus. Sed vestibulum bibendum lectus gravida commodo. Pellentesque auctor leo vitae sagittis suscipit.
-          </p>
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
-<!-- End paper abstract -->
-
-
-<!-- Image carousel -->
-<section class="hero is-small">
-  <div class="hero-body">
-    <div class="container">
-      <div id="results-carousel" class="carousel results-carousel">
-       <div class="item">
-        <!-- TODO: Replace with your research result images -->
-        <img src="static/images/carousel1.jpg" alt="First research result visualization" loading="lazy"/>
-        <!-- TODO: Replace with description of this result -->
-        <h2 class="subtitle has-text-centered">
-          First image description.
-        </h2>
-      </div>
-      <div class="item">
-        <!-- Your image here -->
-        <img src="static/images/carousel2.jpg" alt="Second research result visualization" loading="lazy"/>
-        <h2 class="subtitle has-text-centered">
-          Second image description.
-        </h2>
-      </div>
-      <div class="item">
-        <!-- Your image here -->
-        <img src="static/images/carousel3.jpg" alt="Third research result visualization" loading="lazy"/>
-        <h2 class="subtitle has-text-centered">
-         Third image description.
-       </h2>
-     </div>
-     <div class="item">
-      <!-- Your image here -->
-      <img src="static/images/carousel4.jpg" alt="Fourth research result visualization" loading="lazy"/>
-      <h2 class="subtitle has-text-centered">
-        Fourth image description.
-      </h2>
-    </div>
-  </div>
-</div>
-</div>
-</section>
-<!-- End image carousel -->
-
-
-
-
-<!-- Youtube video -->
-<section class="hero is-small is-light">
-  <div class="hero-body">
-    <div class="container">
-      <!-- Paper video. -->
-      <h2 class="title is-3">Video Presentation</h2>
+  <!-- ============================ ABSTRACT ============================ -->
+  <section class="section hero is-light">
+    <div class="container is-max-desktop">
       <div class="columns is-centered has-text-centered">
         <div class="column is-four-fifths">
-          
-          <div class="publication-video">
-            <!-- TODO: Replace with your YouTube video ID -->
-            <iframe src="https://www.youtube.com/embed/JkaxUblCGz0" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
+          <h2 class="title is-3">Abstract</h2>
+          <div class="content has-text-justified">
+            <p>
+              Planning six-degree-of-freedom (6-DoF) grasps for unseen objects in cluttered tabletop
+              scenes from a single-view depth image requires accurate and efficient evaluation of
+              diverse grasp candidates. Existing early-fusion methods capture local object geometry
+              relative to each grasp candidate but repeatedly encode the scene, whereas late-fusion
+              methods reuse a shared scene representation but may lose this grasp-relative local
+              geometry. We propose EquiGQNet, an efficient 6-DoF grasp quality evaluator that
+              combines the strengths of both approaches. For grasp orientation, EquiGQNet replaces
+              the early-fusion operation of rotating and re-encoding the point cloud for each grasp
+              candidate with an SO(3)-equivariant encode-once-then-rotate scheme, yielding
+              grasp-aligned geometric features from a shared scene encoding. For grasp translation,
+              Mid-level Action Fusion (MAF) injects the grasp position into intermediate features
+              before global aggregation, retaining local geometry relative to each candidate. We
+              evaluate EquiGQNet in two grasp planning pipelines: Cross-Entropy Method (CEM)-based
+              continuous grasp search and candidate ranking with a pretrained generative planner. In
+              simulation, EquiGQNet achieves grasping performance comparable to the early-fusion
+              baseline and substantially outperforms late fusion on objects with complex geometry and
+              limited graspable regions, while reducing CEM planning time from 3.31&nbsp;s to
+              0.48&nbsp;s, a 6.9&times; speedup over early fusion. In real-world household-object
+              decluttering, EquiGQNet achieves a 95.2% grasp success rate and 230 picks per hour,
+              versus 153 and 170 for early- and late-fusion baselines.
+            </p>
           </div>
         </div>
       </div>
     </div>
-  </div>
-</section>
-<!-- End youtube video -->
+  </section>
+  <!-- ========================== END ABSTRACT ========================== -->
 
 
-<!-- Video carousel -->
-<section class="hero is-small">
-  <div class="hero-body">
-    <div class="container">
-      <h2 class="title is-3">Another Carousel</h2>
-      <div id="results-carousel" class="carousel results-carousel">
-        <div class="item item-video1">
-          <!-- TODO: Add poster image for better preview -->
-          <video poster="" id="video1" controls muted loop height="100%" preload="metadata">
-            <!-- Your video file here -->
-            <source src="static/videos/carousel1.mp4" type="video/mp4">
-          </video>
-        </div>
-        <div class="item item-video2">
-          <!-- TODO: Add poster image for better preview -->
-          <video poster="" id="video2" controls muted loop height="100%" preload="metadata">
-            <!-- Your video file here -->
-            <source src="static/videos/carousel2.mp4" type="video/mp4">
-          </video>
-        </div>
-        <div class="item item-video3">
-          <!-- TODO: Add poster image for better preview -->
-          <video poster="" id="video3" controls muted loop height="100%" preload="metadata">
-            <!-- Your video file here -->
-            <source src="static/videos/carousel3.mp4" type="video/mp4">
-          </video>
-        </div>
+  <!-- ========================== INTRODUCTION ========================== -->
+  <section class="section">
+    <div class="container is-max-desktop">
+
+      <h2 class="title is-3 has-text-centered">Introduction</h2>
+
+      <div class="content has-text-justified">
+        <h4 class="title is-5">Summary of EquiGQNet</h4>
+
+        <p>
+          Reliable robotic grasping of unseen objects requires selecting an appropriate
+          six-degree-of-freedom (6-DoF) grasp pose from limited observations. For objects with complex
+          geometry, successful grasps may occupy only narrow regions of the 6-DoF grasp space, making
+          it important to explore diverse grasp candidates and evaluate them accurately. Among methods
+          that directly evaluate arbitrary 6-DoF grasp poses, late-fusion methods reuse a shared scene
+          representation but may not explicitly capture local geometry relative to the gripper, whereas
+          early-fusion methods introduce the grasp pose before encoding and therefore capture
+          grasp-relative geometry, but require reconstructing the input and running the entire encoder
+          for every new candidate. <b>We therefore seek a grasp evaluator that can accept arbitrary
+          6-DoF poses, exploit geometric information specific to each grasp as in early fusion, and
+          still reuse a single point cloud encoding across many candidates.</b>
+        </p>
       </div>
-    </div>
-  </div>
-</section>
-<!-- End video carousel -->
 
-
-
-
-
-
-<!-- Paper poster -->
-<section class="hero is-small is-light">
-  <div class="hero-body">
-    <div class="container">
-      <h2 class="title">Poster</h2>
-
-      <!-- TODO: Replace with your poster PDF -->
-      <iframe  src="static/pdfs/sample.pdf" width="100%" height="550">
-          </iframe>
-        
+      <!-- Figure 1 -->
+      <div class="has-text-centered project-figure">
+        <a href="static/images/fig1_overview.png"
+          target="_blank" rel="noopener">
+          <img
+            class="fig-half"
+            src="static/images/fig1_overview.png"
+            alt="Overview of EquiGQNet"
+            loading="lazy">
+        </a>
       </div>
+
+      <div class="content has-text-justified">
+        <p>
+          We propose EquiGQNet, a 6-DoF grasp evaluation model that captures object
+          geometry relative to each candidate grasp while reusing a single point cloud encoding across
+          candidates. As illustrated above, EquiGQNet handles grasp rotation and translation differently.
+          For rotation, EquiGQNet retains the early-fusion treatment of grasp orientation by rotating the
+          point cloud according to each candidate grasp orientation before encoding. SO(3) equivariance
+          allows the same grasp-oriented features to be obtained by rotating a single shared encoding,
+          avoiding candidate-wise re-encoding.
+        </p>
+      </div>
+
+      <!-- Figure 2 -->
+      <div class="has-text-centered project-figure">
+        <a href="static/images/fig2_network.jpg"
+          target="_blank" rel="noopener">
+          <img
+            src="static/images/fig2_network.jpg"
+            alt="EquiGQNet architecture"
+            loading="lazy">
+        </a>
+      </div>
+
+      <div class="content has-text-justified">
+        <p>
+          For translation, <b>Mid-level Action Fusion (MAF)</b> incorporates the grasp position at
+          intermediate feature layers before local geometric information is lost through global
+          aggregation. As shown in the architecture, EquiGQNet encodes a local point-cloud crop once
+          into shared SO(3)-equivariant features; for each grasp candidate, these features are rotated
+          according to its orientation and fused with its position through MAF before global aggregation.
+          Together, these designs allow EquiGQNet to evaluate each grasp using object geometry relative
+          to the gripper, as in early-fusion methods, without candidate-wise scene re-encoding.
+        </p>
+      </div>
+
     </div>
   </section>
-<!--End paper poster -->
+  <!-- ======================== END INTRODUCTION ======================== -->
+  
+  <!-- ==================== REAL-WORLD EXPERIMENTS ====================== -->
+  <section class="section hero is-light">
+    <div class="container is-max-desktop">
+
+      <h2 class="title is-3 has-text-centered">Real-World Experiments</h2>
+
+      <div class="content has-text-justified">
+        <h4 class="title is-5">Setup</h4>
+
+        <p>
+          We evaluate the grasping pipeline using a Doosan Robotics M1013 with a custom
+          80&nbsp;mm parallel-jaw gripper and a fixed eye-to-hand Zivid Two camera <b>(a)</b>. We use
+          two cluttered test sets, each with 12 objects: household objects <b>(b)</b> and
+          1.6&times;-scaled Dex-Net adversarial objects <b>(c)</b>. All methods use the same CEM-based
+          continuous refinement as in simulation, differing only in the grasp evaluator. Each run starts
+          with 12 objects and terminates after two consecutive failed attempts, with collision-induced
+          emergency stops counted as failures. We perform ten decluttering runs per method and object set.
+        </p>
+      </div>
+
+      <!-- Figure 3 -->
+      <div class="has-text-centered project-figure">
+        <a href="static/images/real_exp_setup.jpg"
+          target="_blank" rel="noopener">
+          <img
+            class="fig-half"
+            src="static/images/real_exp_setup.jpg"
+            alt="(a) Robot, gripper and overhead depth camera above the workspace. (b) Twelve household objects. (c) Twelve 1.6x-scaled Dex-Net adversarial objects."
+            loading="lazy">
+        </a>
+      </div>
+
+      <div class="content has-text-justified">
+        <h4 class="title is-5">Results</h4>
+
+        <p>
+          We report grasp success rate (GSR), declutter rate (DR), and mean picks per hour (MPPH),
+          measured from image acquisition through pick-and-place completion and return to the ready
+          pose. EquiGQNet achieves grasp success comparable to PointNetGPD while attaining the
+          highest MPPH on both object sets. It achieves 95.2% GSR, 100% DR, and 230 MPPH on
+          household objects, and 93.8% GSR, 100% DR, and 206 MPPH on Dex-Net adversarial objects.
+          The GraspGen discriminator shows a larger performance drop than in simulation, particularly
+          on the Dex-Net adversarial objects.
+        </p>
+      </div>
+
+      <div class="tbl-wrap">
+        <table class="eq-table">
+          <thead>
+            <tr>
+              <th rowspan="2">Evaluation Method</th>
+              <th colspan="3" class="grp">Household Objects</th>
+              <th colspan="3" class="grp">Dex-Net Adversarial</th>
+            </tr>
+            <tr>
+              <th>GSR (%)</th><th>DR (%)</th><th>MPPH</th>
+              <th>GSR (%)</th><th>DR (%)</th><th>MPPH</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr class="row-ours">
+              <td><b>EquiGQNet</b></td>
+              <td><b>95.2</b><span class="frac">120/126</span></td>
+              <td><b>100</b><span class="frac">120/120</span></td>
+              <td><b>230</b></td>
+              <td><u>93.8</u><span class="frac">120/128</span></td>
+              <td><b>100</b><span class="frac">120/120</span></td>
+              <td><b>206</b></td>
+            </tr>
+            <tr>
+              <td>PointNetGPD <span class="tag-fusion tag-early">early</span></td>
+              <td><u>94.8</u><span class="frac">109/115</span></td>
+              <td><u>90.8</u><span class="frac">109/120</span></td>
+              <td>153</td>
+              <td><b>94.4</b><span class="frac">118/125</span></td>
+              <td><u>98.3</u><span class="frac">118/120</span></td>
+              <td><u>135</u></td>
+            </tr>
+            <tr>
+              <td>GraspGen Disc. <span class="tag-fusion tag-late">late</span></td>
+              <td>77.1<span class="frac">84/109</span></td>
+              <td>70.0<span class="frac">84/120</span></td>
+              <td><u>170</u></td>
+              <td>66.7<span class="frac">56/84</span></td>
+              <td>46.7<span class="frac">56/120</span></td>
+              <td>125</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <div class="content has-text-justified">
+        <h4 class="title is-5">Decluttering Runs</h4>
+
+        <p>
+          Representative EquiGQNet decluttering runs are shown below for the household objects
+          (top row) and the 1.6&times;-scaled Dex-Net adversarial objects (bottom row). All grasps are
+          selected using the same CEM-based continuous refinement pipeline, with EquiGQNet as the
+          grasp evaluator. Videos are shown at <b>6&times; speed</b>.
+        </p>
+      </div>
+
+      <!-- Videos: household on the top row, Dex-Net adversarial on the bottom row.
+           preload="metadata" plus the #t=0.1 media fragment makes the browser render the
+           first frame as a thumbnail without downloading the whole clip; data-autoplay
+           makes each clip start playing once it scrolls into view (see the script at the
+           end of the page). -->
+      <div class="run-grid">
+        <video controls muted loop playsinline preload="metadata" data-autoplay
+               aria-label="Household decluttering run 1, 6x speed">
+          <source src="static/videos/house_hold1.mp4#t=0.1" type="video/mp4">
+        </video>
+        <video controls muted loop playsinline preload="metadata" data-autoplay
+               aria-label="Household decluttering run 2, 6x speed">
+          <source src="static/videos/house_hold2.mp4#t=0.1" type="video/mp4">
+        </video>
+        <video controls muted loop playsinline preload="metadata" data-autoplay
+               aria-label="Household decluttering run 3, 6x speed">
+          <source src="static/videos/house_hold3.mp4#t=0.1" type="video/mp4">
+        </video>
+        <video controls muted loop playsinline preload="metadata" data-autoplay
+               aria-label="Dex-Net adversarial decluttering run 1, 6x speed">
+          <source src="static/videos/dexnet_adv1.mp4#t=0.1" type="video/mp4">
+        </video>
+        <video controls muted loop playsinline preload="metadata" data-autoplay
+               aria-label="Dex-Net adversarial decluttering run 2, 6x speed">
+          <source src="static/videos/dexnet_adv2.mp4#t=0.1" type="video/mp4">
+        </video>
+        <video controls muted loop playsinline preload="metadata" data-autoplay
+               aria-label="Dex-Net adversarial decluttering run 3, 6x speed">
+          <source src="static/videos/dexnet_adv3.mp4#t=0.1" type="video/mp4">
+        </video>
+      </div>
+
+    </div>
+  </section>
+  <!-- ================== END REAL-WORLD EXPERIMENTS ==================== -->
 
 
-
-<!--BibTex citation -->
+  <!-- ============================ BIBTEX ============================== -->
   <section class="section" id="BibTeX">
     <div class="container is-max-desktop content">
       <div class="bibtex-header">
@@ -480,41 +493,76 @@
           <span class="copy-text">Copy</span>
         </button>
       </div>
-      <pre id="bibtex-code"><code>@article{YourPaperKey2024,
-  title={Your Paper Title Here},
-  author={First Author and Second Author and Third Author},
-  journal={Conference/Journal Name},
-  year={2024},
-  url={https://your-domain.com/your-project-page}
+      <!-- TODO (after arXiv submission): replace note/eprint with the real arXiv id, e.g.
+           eprint       = {2609.XXXXX},
+           archivePrefix= {arXiv},
+           primaryClass = {cs.RO}, -->
+      <pre id="bibtex-code"><code>@misc{seo2026equigqnet,
+  title        = {EquiGQNet: Fast Grasp Quality Evaluation via Shared Equivariant Point Cloud Encoding},
+  author       = {Seo, Sungwon and Won, Jaeseog and Shin, Jiyou and Seo, Youngjin and
+                  Kim, Hyunjun and Yoon, Seokmin and Luong, Tuan and Moon, Hyungpil},
+  year         = {2026},
+  note         = {arXiv preprint, to appear},
+  url          = {https://equigqnet.github.io/}
 }</code></pre>
     </div>
-</section>
-<!--End BibTex citation -->
+  </section>
+  <!-- ========================== END BIBTEX ============================ -->
 
+  </main>
 
   <footer class="footer">
-  <div class="container">
-    <div class="columns is-centered">
-      <div class="column is-8">
-        <div class="content">
-
-          <p>
-            This page was built using the <a href="https://github.com/eliahuhorwitz/Academic-project-page-template" target="_blank">Academic Project Page Template</a> which was adopted from the <a href="https://nerfies.github.io" target="_blank">Nerfies</a> project page.
-            You are free to borrow the source code of this website, we just ask that you link back to this page in the footer. <br> This website is licensed under a <a rel="license"  href="http://creativecommons.org/licenses/by-sa/4.0/" target="_blank">Creative
-            Commons Attribution-ShareAlike 4.0 International License</a>.
-          </p>
-
+    <div class="container">
+      <div class="columns is-centered">
+        <div class="column is-8">
+          <div class="content">
+            <p>
+              This page was built using the <a href="https://github.com/eliahuhorwitz/Academic-project-page-template" target="_blank" rel="noopener">Academic Project Page Template</a>
+              which was adopted from the <a href="https://nerfies.github.io" target="_blank" rel="noopener">Nerfies</a> project page.
+              You are free to borrow the source code of this website, we just ask that you link back
+              to this page in the footer. <br>
+              This website is licensed under a
+              <a rel="license" href="http://creativecommons.org/licenses/by-sa/4.0/" target="_blank">Creative Commons Attribution-ShareAlike 4.0 International License</a>.
+            </p>
+          </div>
         </div>
       </div>
     </div>
-  </div>
-</footer>
+  </footer>
 
-<!-- Statcounter tracking code -->
-  
-<!-- You can add a tracker to track page visits by creating an account at statcounter.com -->
+  <!-- Autoplay the decluttering runs as they scroll into view, and pause them once they
+       leave. Six clips at ~12.7 MB each would be ~76 MB if they all loaded at once, so
+       they keep preload="metadata" (a first-frame thumbnail) until the visitor actually
+       reaches them. Without JavaScript they stay as thumbnails with working controls. -->
+  <script>
+    (function () {
+      var videos = document.querySelectorAll('video[data-autoplay]');
+      if (!videos.length) return;
 
-    <!-- End of Statcounter Code -->
+      if (!('IntersectionObserver' in window)) {
+        // Old browser: just autoplay everything rather than leaving it stuck.
+        videos.forEach(function (v) { v.autoplay = true; v.play().catch(function () {}); });
+        return;
+      }
 
-  </body>
-  </html>
+      var observer = new IntersectionObserver(function (entries) {
+        entries.forEach(function (entry) {
+          var video = entry.target;
+          if (entry.isIntersecting) {
+            // A muted video is always allowed to play programmatically; catch anyway
+            // so a rejected promise never surfaces as an unhandled error.
+            video.play().catch(function () {});
+          } else if (!video.paused) {
+            video.pause();
+          }
+        });
+      }, { threshold: 0.25 });
+
+      videos.forEach(function (v) { observer.observe(v); });
+    })();
+  </script>
+
+  <!-- You can add a tracker to track page visits by creating an account at statcounter.com -->
+
+</body>
+</html>
